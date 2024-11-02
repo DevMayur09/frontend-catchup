@@ -13,7 +13,7 @@ const Body = () => {
   const fetchUser = async () => {
     try {
       if (userData) return;
-      const $response = await axios.get(Base_url + "/profile/view");
+      const $response = await axios.get(Base_url + "/profile/view", { withCredentials: true });
       dispatch(addUser($response.data.user));
     } catch (error) {
       if (error.status === 401) {
